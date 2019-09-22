@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import f_regression
+from sklearn.preprocessing import  StandardScaler
 
 
 def main():
@@ -46,6 +47,7 @@ def main():
     r2=reg.score(x,y)
     n=x.shape[0]
     p=x.shape[1]
+    print(n)
     adjusted_r2=1-(1-r2)*(n-1)/(n-p-1)
     print(f"adjusted r2{adjusted_r2}")
     print(f_regression(x,y))
@@ -60,6 +62,23 @@ def main():
     reg_summary['R2']=reg.score(x,y)
     reg_summary['Adjusted R2']=1-(1-r2)*(n-1)/(n-p-1)
     print(reg_summary)
+
+    ###############  Standardization
+    scaler=StandardScaler()
+    scaler.fit(x)
+    x_scaled=scaler.transform(x)
+    #print(x_scaled)
+    reg=LinearRegression()
+    reg.fit(x_scaled,y)
+    reg_summary=pd.DataFrame([['Bias'],['SAT'],['Rand 1,2,3']],columns=['Features'])
+    reg_summary['Weights']=reg.intercept_,reg.coef_[0],reg.coef_[1]
+    # the bigger the weight the bigger the impact
+    print(reg_summary)
+    new_data=pd.DataFrame(data=[[1700,2],[1800,1]],columns=['SAT','Rand 1,2,3'])
+    new_data_scaled=scaler.transform(new_data)
+    print(reg.predict(new_data_scaled))
+
+
 
 
 
