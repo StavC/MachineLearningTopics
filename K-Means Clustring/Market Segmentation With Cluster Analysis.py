@@ -58,7 +58,7 @@ def main():
 
     ##### Explore clustering solutions and select the number of clusters
 
-    kmeans_new=KMeans(3)# we should try 2,3,4,5 becasue of the elbow
+    kmeans_new=KMeans(4)# we should try 2,3,4,5 becasue of the elbow
     kmeans_new.fit(x_scaled)
     clusters_new=x.copy()
     clusters_new['cluster_pred']=kmeans_new.fit_predict(x_scaled)
