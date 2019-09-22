@@ -60,7 +60,8 @@ def main():
 
     ####################################################################
     ####################################################################
-    #WCSS and Elbow Method to decied how many clusters we shoudld have
+    #WCSS and Elbow Method to decied how many clusters we should have
+
     wcss=[]
     for i in range(1,7):
         kmeans=KMeans(i)
