@@ -31,6 +31,28 @@ def main():
     print(v)
     print(s_array.shape)# no size becasue only scalar
 
+    #### Creating a tensor
+
+    m1=np.array([[5,12,6],[-3,0,14]])
+    m2=np.array([[9,8,7],[1,3,-5]])
+    t=np.array([m1,m2])
+    print(t)
+    print(t.shape)
+
+    #### Transposing Matrices
+    print(m1)
+    m11=m1.transpose()
+    print(m11)
+
+    #### dot Product
+    x=np.array([2,8,-4])
+    y=np.array([1,-7,3])
+    dot=np.dot(x,y)
+    print(dot)
+
+    m3=np.array([[2,-1],[8,0],[3,0]])
+    print(np.dot(m1,m3))
+
 
 
 
