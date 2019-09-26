@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+
 def main():
     observations = 1000
     # We will work with two variables as inputs. You can think about them as x1 and x2 in our previous examples.
